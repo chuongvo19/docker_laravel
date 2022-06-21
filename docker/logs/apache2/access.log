@@ -1,0 +1,5 @@
+192.168.112.3 - - [20/Jun/2022:07:02:34 +0000] "GET / HTTP/1.0" 200 199 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+192.168.112.3 - - [20/Jun/2022:07:02:35 +0000] "GET /favicon.ico HTTP/1.0" 404 448 "http://doodle.test.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+192.168.208.3 - - [20/Jun/2022:07:31:04 +0000] "GET / HTTP/1.0" 200 209 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+192.168.208.3 - - [20/Jun/2022:07:31:17 +0000] "GET / HTTP/1.0" 200 199 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+192.168.208.3 - - [20/Jun/2022:07:31:17 +0000] "GET /favicon.ico HTTP/1.0" 404 463 "http://admin.doodle.test.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"

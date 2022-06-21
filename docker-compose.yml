@@ -1,0 +1,79 @@
+version: '3.3'
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+services: 
+
+  # apache:
+  #   container_name: apache-docker-laravel
+  #   build:
+  #     context: ./docker/apache2
+  #     dockerfile: dockerFile
+  #   ports:
+  #     - "8000:80"
+  #   volumes:
+  #     - ./app:/var/www/html
+  #     - ./docker/logs/apache2:/var/log/apache2
+  #   networks:
+  #     - backend
+    
+
+  php:
+    container_name: php-docker-laravel
+    build:
+      context: ./docker/php-fpm
+      dockerfile: dockerFile
+    volumes:
+      - ./app/backend:/var/www/html/backend
+    networks:
+      - backend
+  
+  nginx:
+    container_name: nginx-docker-laravel
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/config:/etc/nginx/conf.d
+      - ./docker/logs/nginx:/var/log/nginx
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - php
+
+  mysql:
+    container_name: mysql-docker-laralvel
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dc_db
+      MYSQL_USER: chuong
+      MYSQL_PASSWORD: 123123
+    ports:
+    - "3306:80"
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    networks:
+      - frontend
+      - backend
+
+  phpmyadmin:
+    container_name: phpmyadmin-docker-laravel
+    image: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    networks:
+      - backend
+    depends_on:
+      - mysql
+

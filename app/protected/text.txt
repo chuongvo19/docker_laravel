@@ -1,0 +1,1 @@
+service : apache(php7.4 apache), nginx(doodle.test.com , admin.doodle.test.com) , mysql( version 5.7) , phpmyadmin(expose 8080),  

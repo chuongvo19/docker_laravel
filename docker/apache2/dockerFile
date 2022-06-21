@@ -1,0 +1,12 @@
+FROM php:7.4-apache
+
+COPY ./vhost /etc/apache2/sites-available
+COPY ./docker.sh /tmp
+
+
+RUN /tmp/docker.sh
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+RUN docker-php-ext-install pdo pdo_mysql
+RUN a2ensite doodle.test.com.conf 
+RUN a2ensite admin.doodle.test.com.conf
+RUN a2dissite 000-default.conf
